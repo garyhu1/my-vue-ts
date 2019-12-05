@@ -40,12 +40,13 @@ axios.interceptors.response.use(
 export function httpGet({
   url = "",
   params = {}
-}) {
+}){
   return new Promise((resolve, reject) => {
     axios.get(url, {
       params
     }).then((res) => {
-      resolve(res.data)
+      // console.log(res)
+      resolve(res)
     }).catch(err => {
       reject(err)
     })

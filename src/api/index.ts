@@ -2,6 +2,7 @@ import { httpGet, httpPost } from './src'
 
 export const getorglist = (params = {}) => httpGet({ url: 'apps/api/org/list', params })
 
+
 class Http {
   save(data: Object) {
     return httpPost({
