@@ -13,6 +13,14 @@ Vue.use(ViewUI)
 
 Vue.config.productionTip = false
 
+declare module 'vue/types/vue' {
+  interface Vue {
+    $message: any; // 不声明无法使用this.$message
+  }
+}
+
+Vue.prototype.$message = "Hello Garyhu"
+
 new Vue({
   router,
   store,
