@@ -15,5 +15,9 @@ import colorDirective from '../directive/color-directive'
 })
 export default class About extends Vue {
   private message: string = 'this is about vue-ts'
+
+  created() {
+    console.log(this.$message);
+  }
 }
 </script>
