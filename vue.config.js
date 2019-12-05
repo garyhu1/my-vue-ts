@@ -6,7 +6,7 @@ module.exports = {
   assetsDir: "./",
   indexPath: "index.html",
   devServer: {
-    port: 8889, // 端口号
+    port: 8639, // 端口号
     host: "localhost",
     https: false, // https:{type:Boolean}
     open: true, //配置自动启动浏览器
