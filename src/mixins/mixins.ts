@@ -10,6 +10,6 @@ declare module 'vue/types/vue' {
 @Component
 export default class CusMixin extends Vue {
   cusMixinMethod(value: number | string): void {
-    console.log(`this is a cus method of mixins: ${value}`)
+    // console.log(`this is a cus method of mixins: ${value}`)
   }
 }

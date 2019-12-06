@@ -6,6 +6,8 @@
     <p>Counter: {{ counter }}</p>
     <!-- 展示计算属性 -->
     <p>{{ profile }}</p>
+    <Button type="primary" @click="goMain">GO MAIN</Button>
+    <p style="margin: 10px 0;">显示store数据{{ ID }}</p>
     <!-- 子组件 -->
     <Message
       msg="Vue-TS"
@@ -15,7 +17,6 @@
       @returnValue="handleReturnValue"
       @promise="handlePromise"
     ></Message>
-    <Button type="primary">iview</Button>
   </div>
 </template>
 
@@ -40,10 +41,14 @@ export default class Home extends Vue {
     return message
   }
 
+  get ID(): string {
+    return this.$store.state.ID;
+  }
+
   // 监听
   @Watch('counter')
   changeCounter(newVal: number, oldVal: number): void {
-    console.log(`counter change : ${this.counter}`)
+    // console.log(`counter change : ${this.counter}`)
   }
 
   // methods
@@ -55,41 +60,45 @@ export default class Home extends Vue {
     this.counter--
   }
 
+  goMain(): void {
+    this.$router.push("/main")
+  }
+
   handleAddToCount(params: number): void {
-    console.log('handleAddToCount>>Message组件传递的值: ' + params)
+    // console.log('handleAddToCount>>Message组件传递的值: ' + params)
   }
 
   handleReset(): void {
-    console.log('handleReset>>Message组件>>不传递值')
+    // console.log('handleReset>>Message组件>>不传递值')
   }
 
   handleReturnValue(params: number): void {
-    console.log('handleReturnValue>>Message组件传递的值: ' + params)
+    // console.log('handleReturnValue>>Message组件传递的值: ' + params)
   }
 
   handlePromise(params: number): void {
-    console.log('handlePromise>>Message组件传递的值: ' + params)
+    // console.log('handlePromise>>Message组件传递的值: ' + params)
   }
 
   handleChange(): void {
-    console.log('孙子组件改变了')
+    // console.log('孙子组件改变了')
   }
 
   // 生命周期函数
   beforeCreate() {
-    console.log('Call beforeCreate()')
+    // console.log('Call beforeCreate()')
   }
 
   created() {
-    console.log('Call created()')
+    // console.log('Call created()')
   }
 
   beforeMount() {
-    console.log('Call beforeMount()')
+    // console.log('Call beforeMount()')
   }
 
   mounted() {
-    console.log('Call mounted()')
+    // console.log('Call mounted()')
     this.cusMixinMethod('hello')
     // 监听孙子组件的改变
     this.$mybus.$on('change',this.handleChange)
