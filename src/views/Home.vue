@@ -45,7 +45,7 @@ export default class Home extends Vue {
     return this.$store.state.ID;
   }
 
-  // 监听
+  // 监听 @Watch("",{ immediate: true, deep: true })
   @Watch('counter')
   changeCounter(newVal: number, oldVal: number): void {
     // console.log(`counter change : ${this.counter}`)
@@ -65,15 +65,15 @@ export default class Home extends Vue {
   }
 
   handleAddToCount(params: number): void {
-    // console.log('handleAddToCount>>Message组件传递的值: ' + params)
+    console.log('handleAddToCount>>Message组件传递的值: ' + params)
   }
 
   handleReset(): void {
-    // console.log('handleReset>>Message组件>>不传递值')
+    console.log('handleReset>>Message组件>>不传递值')
   }
 
   handleReturnValue(params: number): void {
-    // console.log('handleReturnValue>>Message组件传递的值: ' + params)
+    console.log('handleReturnValue>>Message组件传递的值: ' + params)
   }
 
   handlePromise(params: number): void {

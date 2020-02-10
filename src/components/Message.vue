@@ -23,7 +23,7 @@ export default class Message extends Vue {
   private name: string = 'Hello'
   private count: number = 0
 
-  @Prop()
+  @Prop({default: ''})
   private msg!: string
 
   // 计算属性
@@ -41,9 +41,10 @@ export default class Message extends Vue {
   }
 
   // Emit（此处没有效果）
-  @Emit()
+  @Emit("addToCount")
   addToCount(n: number) {
     this.count += n
+    return n;
   }
 
   @Emit('reset')
@@ -52,7 +53,7 @@ export default class Message extends Vue {
   }
 
   // 此处也没有效果
-  @Emit()
+  @Emit("returnValue")
   returnValue() {
     return 100
   }
